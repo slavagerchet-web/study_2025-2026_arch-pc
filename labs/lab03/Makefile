@@ -1,0 +1,14 @@
+REPORT = report/arch-pc--lab03--report
+MARKDOWN = $(REPORT).qmd
+
+all: pdf docx
+
+pdf:
+	pandoc $(MARKDOWN) -o $(REPORT).pdf --from markdown --pdf-engine=xelatex
+
+docx:
+	pandoc $(MARKDOWN) -o $(REPORT).docx
+
+clean:
+	rm -f $(REPORT).pdf $(REPORT).docx
+

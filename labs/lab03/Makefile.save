@@ -1,0 +1,12 @@
+
+
+all: pdf docx
+
+pdf:
+	pandoc $(MARKDOWN) -o $(REPORT).pdf --from markdown --pdf-engine=xelatex
+
+docx:
+	pandoc $(MARKDOWN) -o $(REPORT).docx
+
+clean:
+	rm -f $(REPORT).pdf $(REPORT).doc
