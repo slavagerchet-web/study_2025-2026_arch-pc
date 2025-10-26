@@ -1,12 +1,67 @@
 ---
+## Front matter
 title: "Отчёт по лабораторной работе №4"
 subtitle: "Создание и процесс обработки программ на языке ассемблера NASM"
 author: "Герчет Вячеслав, группа НКАбд-03-25"
+
+## Generic options
 lang: ru-RU
 toc-title: "Содержание"
+
+## Bibliography
+bibliography: bib/cite.bib
+csl: pandoc/csl/gost-r-7-0-5-2008-numeric.csl
+
+## Pdf output format
 toc: true
 toc-depth: 2
-number-sections: true
+lof: true
+fontsize: 12pt
+linestretch: 1.5
+papersize: a4
+documentclass: scrreprt
+## I18n polyglossia
+polyglossia-lang:
+  name: russian
+  options:
+    - spelling=modern
+    - babelshorthands=true
+polyglossia-otherlangs:
+  name: english
+## I18n babel
+babel-lang: russian
+babel-otherlangs: english
+## Fonts
+mainfont: PT Serif
+romanfont: PT Serif
+sansfont: PT Sans
+monofont: PT Mono
+mainfontoptions: Ligatures=TeX
+romanfontoptions: Ligatures=TeX
+sansfontoptions: Ligatures=TeX,Scale=MatchLowercase
+monofontoptions: Scale=MatchLowercase,Scale=0.9
+## Biblatex
+biblatex: true
+biblio-style: "gost-numeric"
+biblatexoptions:
+  - parentracker=true
+  - backend=biber
+  - hyperref=auto
+  - language=auto
+  - autolang=other*
+  - citestyle=gost-numeric
+## Pandoc-crossref LaTeX customization
+figureTitle: "Рис."
+tableTitle: "Таблица"
+listingTitle: "Листинг"
+lofTitle: "Список иллюстраций"
+lolTitle: "Листинги"
+## Misc options
+indent: true
+header-includes:
+  - \usepackage{indentfirst}
+  - \usepackage{float}
+  - \floatplacement{figure}{H}
 ---
 
 # Цель работы
@@ -16,10 +71,8 @@ number-sections: true
 # Задание
 
 Написать две программы:
-1. Программа `hello.asm` — выводит строку "Hello world!".
-2. Программа `lab4.asm` — выводит персонализированную строку "Герчет Вячеслав".
-
-Обе программы необходимо транслировать, скомпоновать и запустить.
+1. Программа **Hello world** — вывод текста на экран. 
+2. Программа **lab4.asm** — аналогичная, но с персонализированным выводом “Герчет Вячеслав”.
 
 # Выполнение лабораторной работы
 
@@ -58,19 +111,19 @@ number-sections: true
 
 ## Запуск исполняемого файла
 
-Запускаем на выполнение созданный исполняемый файл (рис. @fig:007).
+Запускаем на выполнение созданный исполняемый файл (рис. @fig:07).
 
-![Используем команду ./hello](image/7.png){#fig:007 width=70%}
+![Используем команду ./hello](image/7.png){#fig:07 width=70%}
 
 ## Задание для самостоятельной работы
 
-Создать копию hello.asm под именем lab4.asm, изменить текст на 'Герчет Вячеслав', выполнить трансляцию, компоновку и запуск.  (рис. @fig:008).
+Создать копию hello.asm под именем lab4.asm, изменить текст на 'Герчет Вячеслав', выполнить трансляцию, компоновку и запуск.  (рис. @fig:08).
 
-![открываю редактор](image/8.png){#fig:008 width=70%}
+![открываю редактор](image/8.png){#fig:08 width=70%}
 
-меняю текст на hello: db 'Герчет Вячеслав',10 (рис. @fig:009).
+меняю текст на hello: db 'Герчет Вячеслав',10 (рис. @fig:09).
 
-![в текстовом редакторе редактирую 2 линию](image/9.png){#fig:009 width=70%}
+![в текстовом редакторе редактирую 2 линию](image/9.png){#fig:09 width=70%}
 
  Компоновка объектного файла в исполняемый файл, запуск программы lab4.asm с персонализированным выводом. (рис. @fig:010).
 
@@ -83,14 +136,4 @@ number-sections: true
 # Выводы
 
 Мы познакомились с языком ассемблера NASM и создали две работающих программы.
-
-# Список литературы
-
-1. Офиц. сайт NASM — https://www.nasm.org/?srsltid=AfmBOooKsJGx6Que_Iz2TsByT-xNcV-i3bfE2sqVoH5RBCAwErLXF-VQ
-
-2. Документация по LD (GNU Linker). — https://sourceware.org/binutils/docs/ld.pdf
-
-3. *Ассемблер для начинающих*. https://av-assembler.ru/asm/afd/assembler-for-dummy.htm 
-
-
 
